@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: process.env.DB_PASS,
-    database: "parties_db"
+    database: "burgers_db"
 });
 
 connection.connect(function(err) {
