@@ -14,13 +14,13 @@
     {{#each burgers}}
         <div class="row">
 
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="text-center col-xs-5 col-sm-5 col-md-5 col-lg-5">
                 {{#unless this.devoured}}
                     <textarea>{{this.burger_name}}</textarea>
                 {{/unless}}
             </div>
 
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <div class="text-center col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 {{#unless this.devoured}}
                     <form action="/{{this.id}}?_method=PUT" method="POST">
                         <button type="submit">Devour It!</button>
@@ -28,7 +28,7 @@
                 {{/unless}}
             </div>
 
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="text-center col-xs-5 col-sm-5 col-md-5 col-lg-5">
                 {{#if this.devoured}}
                     <textarea>{{this.burger_name}}</textarea>
                 {{/if}}
@@ -40,6 +40,7 @@
 
     <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+
 
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <form action="/" method="POST">
@@ -55,6 +56,5 @@
             </form>
         </div>
     </div>
-
 
 </div>
