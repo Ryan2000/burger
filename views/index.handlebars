@@ -1,65 +1,60 @@
 <div class="container-fluid">
 
-    <div class="jumbotron text-center">
-        <h1>Eat DA Burger!</h1>
-        <img src="./assets/img/burgerimage.jpeg" alt="Image">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <img class="center-block" src="./assets/img/tumblr_nucdg20jCh1tklspfo1_400.png" alt="Image">
+            <h1 class="text-center">Eat DA Burger!</h1>
+        </div>
     </div>
 
 
 
 
-<ul>
-    {{#each cats}}
-        {{#unless this.sleepy}}
-            <li>
-                {{this.name}}
+    {{#each burgers}}
+        <div class="row">
 
-                <form action="/{{this.id}}?_method=PUT" method="POST">
-                    <input type="hidden" name="sleepy" value="true">
-                    <button type="submit">SLEEP TIME!</button>
-                </form>
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                {{#unless this.devoured}}
+                    <textarea>{{this.burger_name}}</textarea>
+                {{/unless}}
+            </div>
 
-                {{> cats/delete-cat}}
-            </li>
-        {{/unless}}
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                {{#unless this.devoured}}
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <button type="submit">Devour It!</button>
+                    </form>
+                {{/unless}}
+            </div>
+
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                {{#if this.devoured}}
+                    <textarea>{{this.burger_name}}</textarea>
+                {{/if}}
+            </div>
+        </div>
     {{/each}}
-</ul>
 
-<h2>Cats that are sleepy!</h2>
 
-<ul>
-    {{#each cats}}
-        {{#if this.sleepy}}
-            <li>
-                {{this.name}}
 
-                <form action="/{{this.id}}?_method=PUT" method="POST">
-                    <input type="hidden" name="sleepy" value="false">
-                    <button type="submit">WAKE UP!</button>
-                </form>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
 
-                {{> cats/delete-cat}}
-            </li>
-        {{/if}}
-    {{/each}}
-</ul>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <form action="/" method="POST">
 
-<h2>Add a Cat</h2>
-<form class="create-update-form" action="/" method="POST">
+                <div class="form-group">
+                    <label for="burger"></label>
+                    <textarea rows="4" cols="80" class="form-control" name="burger_name" id="burger"
+                              placeholder="Enter Burger Name Here"></textarea>
+                </div>
 
-    <div class="form-group">
-        <label for="ca">Cat Name:</label>
-        <input type="text" id="ca" name="name">
+                <button type="submit" class="btn btn-primary center-block">Submit</button>
+                <p class="text-center">Click submit after entering your burger</p>
+            </form>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label for="slee">Sleepy?</label><br>
-        <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-        <input type="radio" name="sleepy" value="0"> Awake
-    </div>
-
-    <button type="submit">Add Cat</button>
-</form>
 
 
 </div>

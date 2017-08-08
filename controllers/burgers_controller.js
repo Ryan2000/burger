@@ -8,6 +8,8 @@ var router = express.Router();
 
 var burger = require("../models/burger.js");
 
+var moment = require("node-moment");
+
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
@@ -24,7 +26,7 @@ router.post("/", function(req, res) {
     burger.insertOne([
         "burger_name", "devoured", "date"
     ], [
-        req.body.burger_name, false, new Date().toString()
+        req.body.burger_name, false, moment().format('YYYY-MM-DD h:mm:ss')
     ], function() {
         res.redirect("/");
     });
