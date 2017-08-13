@@ -16,7 +16,7 @@
 
             <div class="text-center col-xs-5 col-sm-5 col-md-5 col-lg-5">
                 {{#unless this.devoured}}
-                    <textarea>{{this.burger_name}}</textarea>
+                    <textarea readonly="true">{{this.burger_name}}</textarea>
                 {{/unless}}
             </div>
 
@@ -30,7 +30,7 @@
 
             <div class="text-center col-xs-5 col-sm-5 col-md-5 col-lg-5">
                 {{#if this.devoured}}
-                    <textarea>{{this.burger_name}}</textarea>
+                    <textarea readonly="true">{{this.burger_name}}</textarea>
                 {{/if}}
             </div>
         </div>
